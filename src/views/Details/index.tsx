@@ -19,6 +19,7 @@ import {
 } from './style';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { AppContext } from '../../contexts/AppContext';
 import { useNavigation } from '@react-navigation/native';
 
@@ -55,6 +56,24 @@ const Details: React.FC = () => {
             <TextDescription>
                 {newDescricao}
             </TextDescription>
+            <ContainerInfo>
+                <MapView
+                    provider={PROVIDER_GOOGLE}
+                    style={{flex: 1}}
+                    initialRegion={{
+                    latitude: parseFloat(dataWorkshopSelected.Latitude),
+                    longitude: parseFloat(dataWorkshopSelected.Longitude),
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01,
+                    }}
+                >
+                    <Marker
+                    coordinate={{ latitude: parseFloat(dataWorkshopSelected.Latitude), longitude: parseFloat(dataWorkshopSelected.Longitude) }}
+                    title="Marker Title"
+                    description="Marker Description"
+                    />
+                </MapView>
+            </ContainerInfo>
         </ContainerCard>
         <ContainerCard>
             <TextSubTitleBackground>
