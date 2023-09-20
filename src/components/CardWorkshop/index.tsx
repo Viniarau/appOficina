@@ -8,9 +8,11 @@ import {
     TextDescription,
     ImageWorkshop,
     ContainerText,
+    ContainerRow,
 } from './style';
 import { AppContext } from '../../contexts/AppContext';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export type DataProps = {
     data: any;
@@ -35,15 +37,21 @@ const CardWorkshop = ({data}: DataProps) => {
                 <TextSubTitle>
                     {data.DescricaoCurta}
                 </TextSubTitle>
-                <TextDescription>
-                    {data.Endereco}
-                </TextDescription>
-                <TextDescription>
-                    {data.Telefone1}
-                </TextDescription>
+                <ContainerRow>
+                    <Icon name="map-marker" size={20} color="red" />
+                    <TextDescription>
+                        {data.Endereco}
+                    </TextDescription>
+                </ContainerRow>
+                <ContainerRow>
+                    <Icon name="whatsapp" size={20} color="green" />
+                    <TextDescription>
+                        {data.Telefone1}
+                    </TextDescription>
+                </ContainerRow>
             </ContainerText>
             <ContainerImage>
-                <ImageWorkshop source={require('../../assets/image/oficinaimagem.jpg')} resizeMode="contain" />
+                <ImageWorkshop source={require(`../../assets/image/default.png`)} resizeMode="contain" />
             </ContainerImage>
         </ContainerCard>
     </Card>

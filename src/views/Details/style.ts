@@ -21,9 +21,9 @@ export const ContainerImage = styled.View`
     justify-content: center;
 `;
 
-export const ContainerIngredients = styled.View`
+export const ContainerRow = styled.View`
     flex: 1;
-    padding: 10px;
+    flex-direction: row;
     alignItems: center;
     justify-content: center;
 `;
@@ -124,6 +124,14 @@ export const TextDescription = styled.Text`
     color: ${COLORS.black};
     padding-vertical: 10px;
     text-align: justify;
+`;
+
+export const TextDescriptionContact = styled.Text`  
+    fontSize: 18px;
+    lineHeight: 25px; 
+    color: ${COLORS.black};
+    padding-vertical: 10px;
+    padding-left: 10px;
 `;
 
 export const TextDescriptionClick = styled.Text`  

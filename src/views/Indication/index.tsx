@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import { Container, Button, TextError, TextInput, ButtonText } from './style';
-import { AppContext } from '../../contexts/AppContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { Container, Button, TextError, TextInput, ButtonText, ModalContainer, ModalText } from './style';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Modal from 'react-native-modal';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -28,19 +29,25 @@ const initialValues = {
   };
 
 const Indication: React.FC = () => {
-    const { getWorkshop, dataWorkshop } = useContext(AppContext);
+    const [isModalVisible, setModalVisible] = useState(true);
     const navigation = useNavigation();
 
     const handleSubmit = (values: any) => {
         console.log(values);
-        navigation.navigate('Home');
+        setModalVisible(!isModalVisible);
       };
     
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+        navigation.navigate('Home');
+    };
+
     useEffect(() => {
         
       }, []);
 
     return (
+    <>
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -128,12 +135,22 @@ const Indication: React.FC = () => {
                         <TextError>{errors.EmailAmigo}</TextError>
                     )}
 
-                <Button onPress={handleSubmit}>
+                <Button onPress={() => handleSubmit}>
                     <ButtonText>Enviar</ButtonText>
                 </Button>
             </Container>
             )}
         </Formik>
+        <Modal isVisible={isModalVisible}>
+            <ModalContainer>
+                <Icon name="check-circle" color={'green'} size={100} />
+                <ModalText>Indicação enviada com sucesso!</ModalText>
+                <Button onPress={toggleModal}>
+                    <ButtonText>Sair</ButtonText>
+                </Button>
+            </ModalContainer>
+        </Modal>
+        </>
     )
 }
 

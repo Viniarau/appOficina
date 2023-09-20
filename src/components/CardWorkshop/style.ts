@@ -40,6 +40,12 @@ export const ContainerImage = styled.View`
     justify-content: center;
 `;
 
+export const ContainerRow = styled.View`
+    flex: 1;
+    flex-direction: row;
+    alignItems: center;
+`;
+
 export const TextTitle = styled.Text`  
     fontSize: 26px;
     text-align: center;
@@ -62,8 +68,8 @@ export const TextDescription = styled.Text`
     fontSize: 16px;
     lineHeight: 20px; 
     color: ${COLORS.white};
-    padding-right: 10px;
-    text-align: justify;
+    text-align: left;
+    padding-left: 10px;
 `;
 
 export const ImageWorkshop = styled.Image`

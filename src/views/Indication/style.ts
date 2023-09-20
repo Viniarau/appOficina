@@ -22,6 +22,7 @@ export const TextError = styled.Text`
 
 export const Button = styled.TouchableOpacity`
   height: 60px;
+  width: 100%;
   background-color: #007bff;
   align-items: center;
   justify-content: center;
@@ -34,3 +35,16 @@ export const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
+export const ModalContainer = styled.View`
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ModalText = styled.Text`
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+`;

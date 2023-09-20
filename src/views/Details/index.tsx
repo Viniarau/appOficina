@@ -14,8 +14,11 @@ import {
     ContainerRowInfo,
     TextDescriptionClick,
     ButtonIndication,
+    ContainerRow,
+    TextDescriptionContact,
 } from './style';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { AppContext } from '../../contexts/AppContext';
 import { useNavigation } from '@react-navigation/native';
 
@@ -57,7 +60,7 @@ const Details: React.FC = () => {
             <TextSubTitleBackground>
                 {'SERVIÇOS PRESTADOS'}
             </TextSubTitleBackground>
-            {arrayServicosPrestados && arrayServicosPrestados.map((item, index) => (
+            {arrayServicosPrestados && arrayServicosPrestados.map((item: any, index: any) => (
                 <TextDescription key={index}>
                     {item}
                 </TextDescription>
@@ -65,12 +68,18 @@ const Details: React.FC = () => {
             <TextSubTitleBackground>
                 {'CONTATOS'}
             </TextSubTitleBackground>
-            <TextDescription>
-                {dataWorkshopSelected.Telefone1}
-            </TextDescription>
-            <TextDescription>
-                {dataWorkshopSelected.Email}
-            </TextDescription>
+            <ContainerRow>
+                <Icon name="whatsapp" size={20} color="green" />
+                <TextDescriptionContact>
+                    {dataWorkshopSelected.Telefone1}
+                </TextDescriptionContact>
+            </ContainerRow>
+            <ContainerRow>
+                <Icon name="envelope" size={20} color="black" />
+                <TextDescriptionContact>
+                    {dataWorkshopSelected.Email}
+                </TextDescriptionContact>
+            </ContainerRow>
             <TextSubTitleBackground>
                 {'INDICAÇÃO'}
             </TextSubTitleBackground>
