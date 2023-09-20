@@ -33,7 +33,7 @@ const Indication: React.FC = () => {
     const navigation = useNavigation();
 
     const handleSubmit = (values: any) => {
-        console.log(values);
+        //Função de post do formulário na rota /api/Indicacao enviando no body os values
         setModalVisible(!isModalVisible);
       };
     
